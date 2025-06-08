@@ -1,0 +1,133 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <table border="1">
+    <tr>
+        <td colspan="4">
+            <input type="text" id="iputBox" value="0"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="digitButon" onclick="digitBtnPressed(7)">7</td>
+        <td class="digitButon" onclick="digitBtnPressed(8)">8</td>
+        <td class="digitButon"  onclick="digitBtnPressed(9)">9</td>
+        <td class="digitButon" onclick="operatorBtnPressed('x')">x</td>
+    </tr>
+    <tr>
+        <td class="digitButon" onclick="digitBtnPressed(4)">4</td>
+        <td class="digitButon" onclick="digitBtnPressed(5)">5</td>
+        <td class="digitButon" onclick="digitBtnPressed(6)">6</td>
+        <td class="digitButon" onclick="operatorBtnPressed('-')">-</td>
+    </tr>
+    <tr>
+        <td class="digitButon" onclick="digitBtnPressed(1)">1</td>
+        <td class="digitButon" onclick="digitBtnPressed(2)">2</td>
+        <td class="digitButon" onclick="digitBtnPressed(3)">3</td>
+        <td class="operatorButton" onclick="operatorBtnPressed('+')">+</td>
+    </tr>
+    <tr>
+        <td class="digitButon" colspan="2" onclick="digitBtnPressed(0)">0</td>
+        <td onclick="btnACPressed()">AC</td>
+        <td onclick="operatorBtnPressed('/')">/</td>
+    </tr>
+    <tr>
+        <td class="operatorButton" onclick="operatorBtnPressed('%')">%</td>
+        <td class="operatorButton" onclick="equalsBtnPressed()">=</td>
+        <td class="scientificButton" onclick="scientificBtnPressed('sqrt')">√</td>
+        <td class="operatorButton" onclick="scientificBtnPressed('pow')">x²</td>
+    </tr>
+    <tr>
+        <td class="scientificButton" onclick="scientificBtnPressed('sin')">sin</td>
+        <td class="scientificButton" onclick="scientificBtnPressed('cos')">cos</td>
+        <td class="scientificButton" onclick="scientificBtnPressed('tan')">tan</td>
+        <td class="scientificButton" onclick="scientificBtnPressed('log')">log</td>
+    </tr>
+</table>
+<script>
+var newline = true;
+var value1;
+var currentOperator;
+
+function digitBtnPressed(button){
+    if (newline) {
+        document.getElementById("iputBox").value = button;
+        newline = false;
+    } else {
+        var currentValue = document.getElementById("iputBox").value;
+        document.getElementById("iputBox").value = currentValue + button;
+    }
+}
+
+function btnACPressed() {
+    document.getElementById("iputBox").value = "0";
+    newline = true;
+}
+
+function operatorBtnPressed(operator){
+    currentOperator = operator;
+    value1 = parseFloat(document.getElementById("iputBox").value);
+    newline = true;
+}
+
+function equalsBtnPressed() {
+    var value2 = parseFloat(document.getElementById("iputBox").value);
+    var result;
+    switch(currentOperator) {
+        case '+':
+            result = value1 + value2;
+            break;
+        case '-':
+            result = value1 - value2;
+            break;
+        case 'x':
+            result = value1 * value2;
+            break;
+        case '/':
+            result = value2 !== 0 ? value1 / value2 : 'Error';
+            break;
+        case '%':
+            result = value2 !== 0 ? value1 % value2 : 'Error';
+            break;
+        default:
+            result = value2;
+    }
+    document.getElementById("iputBox").value = result;
+    newline = true;
+}
+
+// Scientific functions
+function scientificBtnPressed(func) {
+    var value = parseFloat(document.getElementById("iputBox").value);
+    var result;
+    switch(func) {
+        case 'sqrt':
+            result = Math.sqrt(value);
+            break;
+        case 'pow':
+            result = Math.pow(value, 2);
+            break;
+        case 'sin':
+            result = Math.sin(value * Math.PI / 180); // degrees to radians
+            break;
+        case 'cos':
+            result = Math.cos(value * Math.PI / 180);
+            break;
+        case 'tan':
+            result = Math.tan(value * Math.PI / 180);
+            break;
+        case 'log':
+            result = Math.log10(value);
+            break;
+        default:
+            result = value;
+    }
+    document.getElementById("iputBox").value = result;
+    newline = true;
+}
+</script>
+
+</body>
+
+</html>

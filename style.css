@@ -1,0 +1,78 @@
+body {
+    background: #222;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+table {
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    padding: 20px;
+    border-collapse: separate;
+    border-spacing: 8px;
+}
+
+input[type="text"] {
+    width: 100%;
+    font-size: 2em;
+    text-align: right;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #000;;
+    color:#fff;
+    margin-bottom: 10px;
+}
+
+td {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.3em;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #444;
+    color: #fff;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+td:hover {
+    background: #666;
+}
+
+.digitButon {
+    background: #222;
+}
+
+.operatorButton {
+    background: #0074D9;
+    color: #fff;
+}
+
+.operatorButton:hover {
+    background: #005fa3;
+}
+
+.ACButton {
+    background: #FF4136;
+    color: #fff;
+}
+
+.ACButton:hover {
+    background: #c12b1e;
+}
+
+.scientificButton {
+    background: #2ECC40;
+    color: #fff;
+}
+
+.scientificButton:hover {
+    background: #209c2a;
+}
