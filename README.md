@@ -1,7 +1,5 @@
 
 
-`markdown
-
 Scientific Calculator
 
 A responsive web-based scientific calculator built using HTML, CSS, and JavaScript. Designed to perform both basic and advanced mathematical operations, this tool is ideal for students, educators, and curious minds.
